@@ -10,7 +10,7 @@ def _relation_(x, y):
         return 4
     elif x == 0:
         return 3
-    elif x = y:
+    elif x == y:
         return 2
     elif x > y:
         return 1
@@ -32,7 +32,7 @@ if __name__ == "__main__":
     tuples = characterize(num)
     print(tuples)
     pp = open("./pi.txt", "r")
-    ee = open("./ee.txt", "r")
+    ee = open("./e.txt", "r")
     e_str = str(ee.read(2))
     p_str = str(pp.read(2))
     ctr = 0
@@ -41,12 +41,16 @@ if __name__ == "__main__":
     bin_str = ""
     factor1 = ""
     factor2 = ""
-    for x in range(9, 2):
+    accumulator = 0
+    for x in range(0, 2):
        while True:
+           input([p_str, e_str])
            if _pivot_relation_ == _relation_(e_str[0], e_str[1]):
                accumulator = accumulator + 1
                _current_relation_ = _relation_(p_str[0], p_str[1])
-               if _current_relation_ == tuple_relation:
+               if _current_relation_ == _tuple_relation_:
+                   print(accumulator)
+                   sys.exit(1)
                    bin_str += bin(accumulator)[2:]
                    ctr = ctr + 1
                    e_str = str(ee.read(2))
